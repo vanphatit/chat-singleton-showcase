@@ -119,7 +119,7 @@ const Index = () => {
           <ChatWindow 
             isSingleton={true} 
             onClose={() => handleCloseChat()} 
-            windowId="singleton"
+            windowId={chatSingleton.getInstanceId().split('_')[1]}
           />
         )}
         

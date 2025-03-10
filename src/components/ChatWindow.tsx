@@ -104,7 +104,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isSingleton, onClose, windowId 
             isSingleton ? "bg-primary" : "bg-destructive"
           )}></div>
           <h3 className="font-medium">
-            {isSingleton ? 'Singleton Chat' : `New Chat #${windowId}`}
+            {isSingleton ? `Singleton Chat (ID: ${windowId})` : `New Chat #${windowId}`}
           </h3>
         </div>
         <button 

@@ -5,8 +5,10 @@ class ChatSingleton {
   private static instance: ChatSingleton | null = null;
   private messages: Message[] = [];
   private isOpen: boolean = false;
+  private id: string;
 
   private constructor() {
+    this.id = `chat_${Date.now()}`;
     // Private constructor to prevent direct instantiation
     this.addSystemMessage("This is the Singleton chat. Messages will persist when closed and reopened.");
   }
@@ -16,6 +18,10 @@ class ChatSingleton {
       ChatSingleton.instance = new ChatSingleton();
     }
     return ChatSingleton.instance;
+  }
+
+  public getInstanceId(): string {
+    return this.id;
   }
 
   public getMessages(): Message[] {
