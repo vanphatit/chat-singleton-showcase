@@ -1,5 +1,4 @@
-
-import { Message } from './types';
+import { Message } from "./types";
 
 class ChatSingleton {
   private static instance: ChatSingleton | null = null;
@@ -10,7 +9,9 @@ class ChatSingleton {
   private constructor() {
     this.id = `chat_${Date.now()}`;
     // Private constructor to prevent direct instantiation
-    this.addSystemMessage("This is the Singleton chat. Messages will persist when closed and reopened.");
+    this.addSystemMessage(
+      "This is the Singleton chat. Messages will persist when closed and reopened."
+    );
   }
 
   public static getInstance(): ChatSingleton {
@@ -28,18 +29,18 @@ class ChatSingleton {
     return [...this.messages];
   }
 
-  public addMessage(text: string, sender: 'user' | 'system'): void {
+  public addMessage(text: string, sender: "user" | "system"): void {
     const newMessage: Message = {
       id: `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       text,
       sender,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
     this.messages.push(newMessage);
   }
 
   private addSystemMessage(text: string): void {
-    this.addMessage(text, 'system');
+    this.addMessage(text, "system");
   }
 
   public setOpen(isOpen: boolean): void {
@@ -53,7 +54,9 @@ class ChatSingleton {
   public resetInstance(): void {
     this.messages = [];
     this.isOpen = false;
-    this.addSystemMessage("This is the Singleton chat. Messages will persist when closed and reopened.");
+    this.addSystemMessage(
+      "This is the Singleton chat. Messages will persist when closed and reopened."
+    );
   }
 }
 

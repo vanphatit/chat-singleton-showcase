@@ -6,7 +6,7 @@ class ChatNonSingleton {
   private id: string;
 
   constructor(windowId: string) {
-    this.id = windowId; // Mỗi instance có một ID riêng
+    this.id = windowId; 
     this.addSystemMessage("This is a new chat instance. Messages will be lost when closed.");
   }
 
